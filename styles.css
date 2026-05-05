@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&family=Tiny5&display=swap');
+    
+ body{
+  font-family: "Tiny5", sans-serif;
+  background-image: url("./assets/hola2.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 110vh;
+  background-position: center;
+  background-color: cyan;
+  text-align: center;
+}
+    
+
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+     align-items:center;
+}
+
+
+.titulo {
+    color: whitesmoke;
+    font-size: 32px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.subtitulo{
+    color:aqua;
+}
+
+.instrucciones{
+    color: cyan;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.como-atacar{
+    color: #0AC4E0;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.tarjetas, .tarjetas-ataques {
+    display: flex;
+    gap: 10px;
+}
+
+
+.tarjeta-de-mokepon {
+    width: 200px;
+    height: 110px;
+    background: rgb(161, 241, 241);
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(30, 148, 228);
+}
+
+.tarjeta-de-mokepon img {
+    width: 80px;    
+    
+
+}
+
+#boton-mascota {
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background: cyan;
+    border: 3px solid darkblue;
+    color: darkblue;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-top: 30px;
+
+}
+
+
+input{
+   display: none; 
+}
+
+input:checked + label {
+    background-color: cyan;
+}
+
+#seleccionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque{
+    background-color: rgb(161, 241, 241);
+     padding: 20px;
+    box-sizing: border-box;
+    border-radius: 40px;
+     border-color: transparent;
+    width: 150px;
+    color: rgb(30, 148, 228);
+    font-family:"Tiny5", sans-serif;
+}
+
+#mensajes {
+    width: 280px;
+    background: #0AC4E0;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+
+#boton-reiniciar{
+   border: transparent; 
+   color: cyan;
+   background-color: #0AC4E0;
+   font-family: "Roboto Condensed", sans-serif;
+}
+
+.ataques{
+    display: grid;
+    align-items: end;
+    justify-content: center;
+    grid-template-columns: 100px 100px;
+    gap: 70px;
+}
+
+#vidas-jugador, #vidas-enemigo {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+.ataques-jugador, .ataques-enemigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(10, 196, 224, 0.7); 
+    padding: 15px;
+    border-radius: 15px;
+    min-width: 120px;
+
+    backdrop-filter: blur(5px); 
+    box-shadow: 0 4px 15px rgb(28, 3, 255);
+
+}
+
+@media (max-width: 530px) {
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+   }
+}
+
+.barra-alma {
+    width: 100px;
+    height: 10px;
+    background-color: #D1D3D4 ;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px auto;
+}
+
+.relleno-alma {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2FA4D7, #7ADAA5, #DA4848  );
+    transition: width 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00f0ff;
+}

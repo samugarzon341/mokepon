@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>MI PRIMER PROJECTO</title>
+    <link rel="icon" href="/favicon.png">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+    <body> 
+        <section id="seleccionar-mascota">    
+            <h1 class="titulo">hallownest</h1>
+
+            <h2 class="subtitulo">Elige tu personaje y !LUCHA¡:</h2>
+
+            <section class="instrucciones">
+    <h2> Cómo jugar</h2>
+    <p>
+        1. Elige tu personaje.<br>
+        2. Presiona "Seleccionar".<br>
+        3. Escoge tus ataques: aguijón, hechizo o amuleto.<br>
+        4. Derrota al enemigo bajando sus vidas a 0.<br>
+        5. ¡Gana el combate!
+    </p>
+    </section>
+
+            <div class="tarjetas">
+                  <input type="radio" name="mascota" id="caballerito"/>
+                  <label class="tarjeta-de-mokepon" for="caballerito">
+                    <p>Caballerito</p>
+                    <img src="./assets/f594b0a2-3ebb-442c-a0b4-ceceb4ffbcbc.png" alt="caballerito">
+                  </label>
+            <input type="radio" name="mascota" id="hornet"/>
+            <label class="tarjeta-de-mokepon" for="hornet">
+                <p>Hornet</p>
+                <img src="./assets/29150342-dbb7-4ff2-af7b-5c5bec191901.png" alt="hornet">
+                </label>
+            <input type="radio" name="mascota" id="vasija"/>
+            <label class="tarjeta-de-mokepon" for="vasija">
+                <p>Vasija</p>
+                <img src="./assets/37a81172-5db1-49b0-a30b-5f4ca7133f95.png" alt="vasija">
+                </label>
+            
+            </div>
+        
+            <button id="boton-mascota">Seleccionar</button>
+        </section>
+
+                    <section id="seleccionar-ataque">
+                        <h1 class="titulo">batalla hallownest</h1>
+
+                        <h2 class="subtitulo">Elige tu ataque:</h2>
+
+                        <section class="como-atacar">
+    <h2 class=>ataques</h2>
+    <p>
+        1. aguijon⚔️ gana amuleto📿.<br>
+        2. hechizo🔮 gana aguijon⚔️.<br>
+        3. amuleto📿gana hechizo🔮.<br>
+        4. cada vez que llenes la barra de alma recibiras +1 vida.<br>
+        5.Si llenas 3 veces la barra recibiras +2 vidas.<br>
+        6. Aun hay bugs por que es la version beta :D.<br>   
+    </p>
+</section>
+
+            <div class="tarjetas-ataques">
+                <button id="boton-aguijon" class="boton-de-ataque">aguijon ⚔️</button>
+                <button id="boton-hechizo" class="boton-de-ataque">hechizo 🔮</button>
+                <button id="boton-amuleto" class="boton-de-ataque">amuleto 📿</button>
+            </div>
+            
+        <div>
+             <div id="mensajes">
+                <p id="resultado">suerte contra ellos</p>
+            
+            <section id="reiniciar">
+                <button id="boton-reiniciar">Volver a retar</button>
+            </section>
+        </div>
+    
+        <div class="ataques">
+            <div class="ataques-jugador">
+            <p id="vidas-jugador">5</p>
+
+    <div class="barra-alma">
+        <div id="barra-alma-jugador" class="relleno-alma"></div>
+    </div>
+
+            <p id="mascota-jugador"></p>
+            <div id="ataques-del-jugador"></div>
+        </div>
+            <div class="ataques-enemigo">
+            <span id="vidas-enemigo">5</span>
+
+    <div class="barra-alma">
+        <div id="barra-alma-enemigo" class="relleno-alma"></div>
+    </div>
+
+            <p id="mascota-enemigo"></p>
+            <div id="ataques-del-enemigo"></div>
+        </div>
+        </div>
+        </section>
+    <script src="./js/mokepon.js"></script>
+    </body>
+</html>
