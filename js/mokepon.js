@@ -50,7 +50,14 @@ let  caballerito = new Mokepon('caballerito' , './assets/f594b0a2-3ebb-442c-a0b4
 let hornet = new Mokepon('hornet', './assets/29150342-dbb7-4ff2-af7b-5c5bec191901.png', 5)
 
 let vasija = new Mokepon('vasija', './assets/37a81172-5db1-49b0-a30b-5f4ca7133f95.png', 5)
-console.log(caballerito)
+caballerito.ataques.push(
+    { nombre: '⚔️', id: 'boton-aguijon' },
+    { nombre: '⚔️', id: 'boton-aguijon' },
+    { nombre: '⚔️', id: 'boton-aguijon' },
+    { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '🔮', id: 'boton-hechizo' },
+)
 
 
 function iniciarJuego() {
