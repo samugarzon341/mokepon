@@ -55,8 +55,8 @@ caballerito.ataques.push(
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '📿', id: 'boton-amuleto' },
+   
 )
 
 
