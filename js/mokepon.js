@@ -60,19 +60,20 @@ caballerito.ataques.push(
 )
 
 hornet.ataques.push(
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
+    { nombre: '📿', id: 'boton-amuleto' },
+    { nombre: '📿', id: 'boton-amuleto' },
+    { nombre: '📿', id: 'boton-amuleto' },
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '📿', id: 'boton-amuleto' },
+    
    
 )
 
 hornet.ataques.push(
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '🔮', id: 'boton-hechizo' },
+    { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '📿', id: 'boton-amuleto' },
    
 )
