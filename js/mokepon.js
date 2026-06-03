@@ -77,7 +77,9 @@ vasija.ataques.push(
     { nombre: '📿', id: 'boton-amuleto' },  
 )
 
-mokepones.push(caballerito,hornet,vasija)
+mokepones.forEach((mokepon) =>{
+    console.log(mokepon)
+})
 
 function iniciarJuego() {
 
