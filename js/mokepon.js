@@ -69,15 +69,15 @@ hornet.ataques.push(
    
 )
 
-hornet.ataques.push(
+vasija.ataques.push(
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '📿', id: 'boton-amuleto' },
-   
+    { nombre: '📿', id: 'boton-amuleto' },  
 )
 
+mokepones.push(caballerito,hornet,vasija)
 
 function iniciarJuego() {
 
