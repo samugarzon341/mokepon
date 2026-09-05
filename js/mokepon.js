@@ -28,6 +28,7 @@ const NECESARIAS = 3
 let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMokepones
 let vidasJugador = 5
  let vidasEnemigo = 5
 const MAX_VIDAS = 9
@@ -84,7 +85,13 @@ function iniciarJuego() {
 sectionSeleccionarAtaque.style.display = 'none'
 
 mokepones.forEach((mokepon) => {
-    console.log(mokepon.nombre)
+    opcionDeMokepones = `   
+     <input type="radio" name="mascota" id=${mokepon.nombre} />
+                  <label class="tarjeta-de-mokepon" for=${mokepon.nombre}>
+                    <p>${mokepon.nombre}</p>
+                    <img src=${mokepon.foto} alt=${mokepon.nombre}>
+                  </label>
+    `
 })
 
 sectionReiniciar.style.display = 'none'
