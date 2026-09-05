@@ -21,21 +21,23 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
- 
+
+const NECESARIAS = 3
+const MAX_VIDAS = 9
+const MAX_ALMA = 2
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+
 let cargasCompletasEnemigo = 0
 let cargasCompletasJugador = 0
-const NECESARIAS = 3
 let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones
 let vidasJugador = 5
  let vidasEnemigo = 5
-const MAX_VIDAS = 9
 
 let almaJugador = 0
 let almaEnemigo = 0
-const MAX_ALMA = 2
 
 class Mokepon {
     constructor(nombre, foto, vida) {
@@ -92,6 +94,7 @@ mokepones.forEach((mokepon) => {
                     <img src=${mokepon.foto} alt=${mokepon.nombre}>
                   </label>
     `
+    contenedorTarjetas.innerHTML = opcionDeMokepones
 })
 
 sectionReiniciar.style.display = 'none'
