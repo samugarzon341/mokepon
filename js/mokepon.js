@@ -84,7 +84,7 @@ function iniciarJuego() {
 sectionSeleccionarAtaque.style.display = 'none'
 
 mokepones.forEach((mokepon) => {
-    console.log(mokepon)
+    console.log(mokepon.nombre)
 })
 
 sectionReiniciar.style.display = 'none'
