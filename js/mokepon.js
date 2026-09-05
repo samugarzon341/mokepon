@@ -94,7 +94,7 @@ mokepones.forEach((mokepon) => {
                     <img src=${mokepon.foto} alt=${mokepon.nombre}>
                   </label>
     `
-    contenedorTarjetas.innerHTML = opcionDeMokepones
+    contenedorTarjetas.innerHTML += opcionDeMokepones
 })
 
 sectionReiniciar.style.display = 'none'
