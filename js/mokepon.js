@@ -8,9 +8,6 @@ const botonAgua = document.getElementById('boton-hechizo')
 const botonReiniciar = document.getElementById('boton-reiniciar')
 
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
-const imputHipodoge = document.getElementById('caballerito')  
-const inputCapipepo = document.getElementById('hornet')
-const inputRatigueya = document.getElementById('vasija')
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
@@ -33,6 +30,9 @@ let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones
+let imputHipodoge 
+let inputCapipepo 
+let inputRatigueya 
 let vidasJugador = 5
  let vidasEnemigo = 5
 
@@ -95,6 +95,10 @@ mokepones.forEach((mokepon) => {
                   </label>
     `
     contenedorTarjetas.innerHTML += opcionDeMokepones
+
+     imputHipodoge = document.getElementById('caballerito')  
+     inputCapipepo = document.getElementById('hornet')
+     inputRatigueya = document.getElementById('vasija')
 })
 
 sectionReiniciar.style.display = 'none'
