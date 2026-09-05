@@ -82,6 +82,11 @@ mokepones.push(caballerito, hornet, vasija)
 function iniciarJuego() {
 
 sectionSeleccionarAtaque.style.display = 'none'
+
+mokepones.forEach((mokepon) => {
+    console.log(mokepon)
+})
+
 sectionReiniciar.style.display = 'none'
 botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 botonFuego.addEventListener('click', ataqueFuego)
