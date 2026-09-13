@@ -2,12 +2,11 @@
     
  body{
   font-family: "Roboto Condensed", sans-serif;
-  background-image: url("./assets/caballerito.gif");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 110vh;
   background-position: center;
-  background-color: cyan;
+  background-color: #2a40b9;
   text-align: center;
 }
     
@@ -30,9 +29,22 @@
     color:aqua;
 }
 
-.instrucciones{
+#instrucciones{
     color: cyan;
+    font-size:x-large;
     font-family: "Roboto Condensed", sans-serif;
+}
+
+#las-instrucciones {
+    width: 500px;
+    height: 70px;
+    border-radius: 10px;
+    background: transparent;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: medium;
+    margin-top: 10px;
 }
 
 .como-atacar{
@@ -42,13 +54,13 @@
 
 .tarjetas, .tarjetas-ataques {
     display: flex;
-    gap: 10px;
+    gap: 30px;
+    justify-content: center;
 }
 
-
 .tarjeta-de-mokepon {
-    width: 200px;
-    height: 110px;
+    width: 250px;
+    height: 120px;
     background: rgb(161, 241, 241);
     padding: 30px;
     box-sizing: border-box;
@@ -60,18 +72,17 @@
 }
 
 .tarjeta-de-mokepon img {
-    width: 80px;    
-    
-
+    width: 90px;    
+    height: 90px;
 }
 
 #boton-mascota {
-    width: 180px;
-    height: 40px;
+    width: 300px;
+    height: 60px;
     border-radius: 20px;
-    background: cyan;
-    border: 3px solid darkblue;
-    color: darkblue;
+    background: transparent;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
     font-family: "Roboto Condensed", sans-serif;
     margin-top: 30px;
 
@@ -98,7 +109,7 @@ input:checked + label {
     box-sizing: border-box;
     border-radius: 40px;
      border-color: transparent;
-    width: 150px;
+    width: 100px;
     color: rgb(30, 148, 228);
     font-family:"Tiny5", sans-serif;
 }
@@ -146,8 +157,14 @@ input:checked + label {
 
     backdrop-filter: blur(5px); 
     box-shadow: 0 4px 15px rgb(28, 3, 255);
-
 }
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media (max-width: 530px) {
     .tarjetas, .tarjetas-ataques{
@@ -155,20 +172,3 @@ input:checked + label {
    }
 }
 
-.barra-alma {
-    width: 100px;
-    height: 10px;
-    background-color: #D1D3D4 ;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 5px auto;
-}
-
-.relleno-alma {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #2FA4D7, #7ADAA5, #DA4848  );
-    transition: width 0.3s ease;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #00f0ff;
-}
