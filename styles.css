@@ -165,10 +165,30 @@ input:checked + label {
     justify-content: center;
 }
 
+#ver-mapa button{
+    width: 100px;
+    height: 60px;
+    border-radius: 20px;
+    background: blue;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 1px 0;
+}
 
-@media (max-width: 530px) {
+@media (max-width: 540px) {
     .tarjetas, .tarjetas-ataques{
         flex-direction: column;
    }
 }
+
+@media (max-width: 560px) {
+    #ver-mapa div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+
 

@@ -96,11 +96,11 @@ let hornet = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.pn
 
 let vasija = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
 
-let  caballeritoEnemigo= new Mokepon('caballerito' , './assets/caballerito2.png', 5, './assets/caballerito2.png', 210, 90)
+let  caballeritoEnemigo= new Mokepon('caballerito' , './assets/caballerito2.png', 5, './assets/caballerito2.png')
 
-let hornetEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png', 497, 25)
+let hornetEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png')
 
-let vasijaEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png', 42, 375)
+let vasijaEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
 
 caballerito.ataques.push(
     { nombre: '⚔️', id: 'boton-aguijon' },

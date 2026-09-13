@@ -10,7 +10,7 @@
 
         <link rel="icon" href="/favicon.png">
         <link rel="stylesheet" href="./styles.css">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
 
     <body>
@@ -51,13 +51,14 @@
         </section>
 
         <section id="ver-mapa">
-            <h1 class="titulo">recorre el mapa con tu pokeknight</h1>
+            <h2 class="subtitulo">recorre el mapa con tu pokeknight</h2>
             <canvas id="mapa"></canvas>
             <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
+            <div>
             <button onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
             <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
             <button onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
-            
+        </div>    
         </section>
 
 
