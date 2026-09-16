@@ -1,0 +1,24 @@
+{
+  "name": "mokepon-la-copia-de-pokemon",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/samugarzon341/mokepon#readme",
+  "bugs": {
+    "url": "https://github.com/samugarzon341/mokepon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samugarzon341/mokepon.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
