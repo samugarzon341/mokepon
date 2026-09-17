@@ -65,7 +65,8 @@ mapa.height = alturaQueBuscamos
 
 
 class Mokepon {
-    constructor(nombre, foto, vida, fotoMapa) {
+    constructor(nombre, foto, vida, fotoMapa, id = null) {
+        this.id = id
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
@@ -97,64 +98,36 @@ let hornet = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.pn
 
 let vasija = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
 
-let  caballeritoEnemigo= new Mokepon('caballerito' , './assets/caballerito2.png', 5, './assets/caballerito2.png')
-
-let hornetEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png')
-
-let vasijaEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
-
-caballerito.ataques.push(
+const caballeritoAtaques = [
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '📿', id: 'boton-amuleto' },
+]
 
-)
+caballerito.ataques.push(...caballeritoAtaques)
 
-    caballeritoEnemigo.ataques.push(
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '📿', id: 'boton-amuleto' },
-
-)
-
-hornet.ataques.push(
+const hornetAtaques = [
     { nombre: '📿', id: 'boton-amuleto' },
     { nombre: '📿', id: 'boton-amuleto' },
     { nombre: '📿', id: 'boton-amuleto' },
     { nombre: '⚔️', id: 'boton-aguijon' },
     { nombre: '🔮', id: 'boton-hechizo' },
-  
-)
+]
 
-hornetEnemigo.ataques.push(
-    { nombre: '📿', id: 'boton-amuleto' },
-    { nombre: '📿', id: 'boton-amuleto' },
-    { nombre: '📿', id: 'boton-amuleto' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '🔮', id: 'boton-hechizo' },
-  
-)
+hornet.ataques.push(...hornetAtaques)
 
-vasija.ataques.push(
+const vasijaAtaques = [
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '🔮', id: 'boton-hechizo' },
     { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '📿', id: 'boton-amuleto' },  
-)
+    { nombre: '📿', id: 'boton-amuleto' },
+]
 
-vasijaEnemigo.ataques.push(
-    { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '🔮', id: 'boton-hechizo' },
-    { nombre: '⚔️', id: 'boton-aguijon' },
-    { nombre: '📿', id: 'boton-amuleto' },  
-)
-
+vasija.ataques.push(...vasijaAtaques)
+ 
 mokepones.push(caballerito, hornet, vasija)
 
 function iniciarJuego() {
@@ -453,7 +426,23 @@ function enviarPosicion(x, y) {
             res.json()
             .then(function ({enemigos}){
                 console.log(enemigos)
-            })
+                enemigos.forEach(function (enemigo) {
+                    let mokeponEnemigo = null
+                    const mokeponNombre = enemigo.mokepon.nombre || ""
+                    if (mokeponNombre === "caballerito") {
+                        mokeponEnemigo = new Mokepon('caballerito', './assets/caballerito2.png', 5, './assets/caballerito2.png')
+                    } else if (mokeponNombre === "hornet") {
+                        mokeponEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png')
+                    } else if (mokeponNombre === "vasija") {
+                        mokeponEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
+                    }
+
+                    mokeponEnemigo.pintarMokepon()
+
+                    mokeponEnemigo.x = enemigo.x
+                    mokeponEnemigo.y = enemigo.y
+                })
+         })
         }
     })
 }
