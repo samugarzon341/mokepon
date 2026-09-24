@@ -23,9 +23,11 @@ const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
 let jugadorId = null
+let enemigoId = null
 let cargasCompletasEnemigo = 0
 let cargasCompletasJugador = 0
 let mokepones = []
+let mokeponesEnemigos = []
 let ataqueJugador=[]
 let ataqueEnemigo= [] 
 let opcionDeMokepones
@@ -167,7 +169,7 @@ mokepones.forEach((mokepon) => {
 }
 
 function unirseAlJuego() {
-    fetch("http://localhost:8080/unirse")
+    fetch("http://192.168.0.17:8080/unirse")
     .then(function (res) {
         if (res.ok) {
             res.text()
@@ -185,9 +187,6 @@ function comenzarJuego() {
 }
 
 function seleccionarMascotaJugador() {
-
-sectionSeleccionarMascota.style.display = 'none'
-
 if (inputHipodoge.checked){
     spanMascotaJugador.innerHTML = inputHipodoge.id
     mascotaJugador = inputHipodoge.id
@@ -199,7 +198,10 @@ if (inputHipodoge.checked){
     mascotaJugador = inputRatigueya.id
 } else {
     alert('selecciona una mascota porfavor')
+    return
 }
+
+sectionSeleccionarMascota.style.display = 'none'
 
     seleccionarMokepon(mascotaJugador)
 
@@ -209,7 +211,7 @@ iniciarMapa()
 }
 
 function seleccionarMokepon(mascotaJugador) {
-    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+    fetch(`http://192.168.0.17:8080/mokepon/${jugadorId}`, {
     method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -265,14 +267,43 @@ function secuenciaAtaque(){
             console.log(ataqueJugador)
             boton.style.background = '#1572A1'
             boton.disabled = true
+           } 
+           if (ataqueJugador.length === 5) {
+               enviarAtaques()
            }
-           ataqueAleatorioEnemigo()
         })
     })
     
 
 }
    
+function enviarAtaques() {
+    fetch(`http://192.168.0.17:8080/mokepon/${jugadorId}/ataques`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            ataques: ataqueJugador
+        })
+    })
+    intervalo = setInterval(obtenerAtaques, 50)
+}
+
+function obtenerAtaques() {
+    fetch(`http://192.168.0.17:8080/mokepon/${enemigoId}/ataques`)
+    .then(function (res) {
+        if (res.ok) {
+            res.json()
+            .then(function ({ ataques}){
+                if (ataques.length === 5) {
+                    ataqueEnemigo = ataques
+                    combate()
+                }
+            })    
+        }
+    })
+}
 
 
 function seleccionarMascotaEnemigo(enemigo) {
@@ -312,6 +343,7 @@ function indexAmbosOponentes(jugador, enemigo) {
 }
 
 function combate() {
+    clearInterval(intervalo)
 
   for (let index = 0; index < ataqueJugador.length; index++) {
        if(ataqueJugador[index] === ataqueEnemigo[index]) {
@@ -319,25 +351,26 @@ function combate() {
         crearMensaje("AMBOS EMPATARON EN ESTA RONDA :o") 
        } else if(ataqueJugador [index] === 'AGUIJON' && ataqueEnemigo[index] === 'AMULETO') {
         indexAmbosOponentes(index, index)
-        crearMensaje("GANASTE ESTA RONDA CON :)")
+        crearMensaje("GANASTE ESTA RONDA (●'◡'●)")
         victoriasJugador++
         spanVidasJugador.innerHTML = victoriasJugador 
       }   else if(ataqueJugador [index] === 'HECHIZO' && ataqueEnemigo[index] === 'AGUIJON') {
         indexAmbosOponentes(index, index)
-        crearMensaje("GANASTE ESTA RONDA =D")
+        crearMensaje("GANASTE ESTA RONDA ^_^")
         victoriasJugador++
         spanVidasJugador.innerHTML = victoriasJugador
       }  else if(ataqueJugador [index] === 'AMULETO' && ataqueEnemigo[index] === 'HECHIZO') {
         indexAmbosOponentes(index, index)
-        crearMensaje("GANASTE ESTA RONDA :D")
+        crearMensaje("GANASTE ESTA RONDA \^o^/")
         victoriasJugador++
         spanVidasJugador.innerHTML = victoriasJugador
       } else {
         indexAmbosOponentes(index, index)
-        crearMensaje("EL ENEMIGO GANO ESTA RONDA =(")
+        crearMensaje("EL ENEMIGO GANO ESTA RONDA X﹏X")
         victoriasEnemigo++
         spanVidasEnemigo.innerHTML = victoriasEnemigo
       }
+      revisarVidas()
     }
 }
 
@@ -400,18 +433,18 @@ function pintarCanvas() {
 
 enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
 
-    caballeritoEnemigo.pintarMokepon()
-    hornetEnemigo.pintarMokepon()
-    vasijaEnemigo.pintarMokepon()
-    if (mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0) {
-        revisarColision(caballeritoEnemigo)
-        revisarColision(hornetEnemigo)
-        revisarColision(vasijaEnemigo)
-    }
+mokeponesEnemigos.forEach(function (mokepon) {
+    mokepon.pintarMokepon()
+})
+if (mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0) {
+    mokeponesEnemigos.forEach(function (mokepon) {
+        revisarColision(mokepon)
+    })
+}
 }
 
 function enviarPosicion(x, y) {
-    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+    fetch(`http://192.168.0.17:8080/mokepon/${jugadorId}/posicion`, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -426,21 +459,21 @@ function enviarPosicion(x, y) {
             res.json()
             .then(function ({enemigos}){
                 console.log(enemigos)
-                enemigos.forEach(function (enemigo) {
+                mokeponesEnemigos = enemigos.map(function (enemigo) {
                     let mokeponEnemigo = null
-                    const mokeponNombre = enemigo.mokepon.nombre || ""
+                    const mokeponNombre = enemigo.mokepon?.nombre || ""
                     if (mokeponNombre === "caballerito") {
-                        mokeponEnemigo = new Mokepon('caballerito', './assets/caballerito2.png', 5, './assets/caballerito2.png')
+                        mokeponEnemigo = new Mokepon('caballerito', './assets/caballerito2.png', 5, './assets/caballerito2.png', enemigo.id)
                     } else if (mokeponNombre === "hornet") {
-                        mokeponEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png')
+                        mokeponEnemigo = new Mokepon('hornet', './assets/hornet.png', 5, './assets/hornet.png', enemigo.id)
                     } else if (mokeponNombre === "vasija") {
-                        mokeponEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png')
+                        mokeponEnemigo = new Mokepon('vasija', './assets/vasija.png', 5, './assets/vasija.png', enemigo.id)
                     }
-
-                    mokeponEnemigo.pintarMokepon()
 
                     mokeponEnemigo.x = enemigo.x
                     mokeponEnemigo.y = enemigo.y
+
+                  return mokeponEnemigo
                 })
          })
         }
@@ -533,6 +566,9 @@ function revisarColision(enemigo) {
 
     detenerMovimiento()
     clearInterval(intervalo)
+    console.log('Se detecto una colision')
+
+    enemigoId = enemigo.id
     sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
